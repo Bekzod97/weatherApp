@@ -1,10 +1,7 @@
 const API_KEY = 'f5c0821f15c3b6ce16b96855622fb7a6';
 
-
 const form = document.querySelector("#form");
 const input = document.querySelector(".form__input");
-
-
 
 // работаем с формой
 form.addEventListener("submit", submitHandler);
@@ -29,17 +26,6 @@ async function submitHandler(event) {
     }
 
     let weather = await getWeather(city[0].lat, city[0].lon);
-
-
-
-    // проверяем данные
-    console.log(city);
-    console.log(city[0].name);
-    console.log("погода: " + weather.main.temp);
-    console.log("влажность: " + weather.main.humidity);
-    console.log("ветер: " + weather.wind.speed);
-    console.log(weather.weather[0].main);
-    console.log(weather)
 
     // добавляем в объект все полученные данные 
     const weatherData = {
@@ -75,7 +61,6 @@ async function getWeather(lat, lon) {
 
     const response = await fetch(weatherUrl);
     const data = await response.json();
-
 
     return data;
 }
@@ -131,7 +116,6 @@ function renderWeatherData(data) {
     info.innerHTML = text;
 
 }
-
 
 // получаем местоположение
 
