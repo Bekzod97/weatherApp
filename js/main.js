@@ -60,7 +60,7 @@ async function submitHandler(event) {
 // получаем локацию 
 async function getGeo(name) {
 
-    const geoUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${name}&limit=5&appid=${API_KEY}`;
+    const geoUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${name}&limit=5&appid=${API_KEY}`;
 
     const response = await fetch(geoUrl);
     const data = await response.json();
@@ -140,7 +140,7 @@ window.addEventListener("load", requestGeoPosition);
 function requestGeoPosition() {
     navigator.geolocation.getCurrentPosition(async function (position) {
 
-        const geoRequest = `http://api.openweathermap.org/geo/1.0/reverse?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${API_KEY}&units=metric`;
+        const geoRequest = `https://api.openweathermap.org/geo/1.0/reverse?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${API_KEY}&units=metric`;
         const geoResponse = await fetch(geoRequest);
         const geoData = await geoResponse.json();
 
